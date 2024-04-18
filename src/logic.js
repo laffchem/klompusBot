@@ -64,6 +64,9 @@ export const createPost = async (driver, post) => {
 			)
 		)
 		.click();
+	sleep(3000);
+	console.log('Closing browser...');
+	await driver.quit();
 };
 
 // Follow random people logic
