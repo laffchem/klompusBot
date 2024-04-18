@@ -4,6 +4,7 @@ import 'chromedriver';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { username, password, apiKey } from './config.js';
 import { linkedInisms } from './klompuses.js';
+import { sleep } from './utils.js';
 
 const genAI = new GoogleGenerativeAI(apiKey);
 const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
@@ -55,6 +56,7 @@ export const createPost = async (driver, post) => {
 		)
 		.sendKeys(post);
 
+	sleep(5000);
 	await driver
 		.findElement(
 			webdriver.By.xpath(
